@@ -17,7 +17,7 @@ function App() {
   }
 
   function disableInput() {
-    setIsDisbled(false);
+    setIsDisbled(true);
   }
 
   const [numberValue, setNumberValue] = useState("1");
