@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const username = useRef(null);
@@ -31,6 +33,8 @@ function App() {
       setNumberValue("");
     }
   };
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className="App">
@@ -74,11 +78,15 @@ function App() {
           <div>
             <label htmlFor="password">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="password"
               id="password"
               ref={password}
               disabled={isDisabled}
+            />
+            <FontAwesomeIcon
+              icon={faEye}
+              onClick={() => setShowPassword(!showPassword)}
             />
           </div>
           <button
